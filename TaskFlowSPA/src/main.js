@@ -1,7 +1,7 @@
-import "./styles/global.css";
-import { renderHome } from "./views/home.js";
-import { renderLogin } from "./views/auth/login.js"
-import { renderRegister } from "./views/auth/register.js"
+ import "./styles/global.css";
+ import { renderLogin } from "./views/auth/login.js"
+
+
 
 const app = document.getElementById('app');
 

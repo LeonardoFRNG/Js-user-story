@@ -1,5 +1,7 @@
- export function renderRegister() {
-    return `
+import { crearUsuario } from "../../services/users.service";
+
+export function renderRegister() {
+  return `
         <main class="grid min-h-screen lg:grid-cols-[0.95fr_1.05fr]">
   <section class="hidden border-r border-blue-100 bg-blue-600 p-10 text-white lg:flex lg:flex-col lg:justify-between">
     <a class="text-xl font-black tracking-tight" href="/src/views/home.html">TaskFlowSPA</a>
@@ -73,23 +75,28 @@
 }
 
 export function setupRegister() {
-    const form = document.getElementById("register-form");
-    const nombre = document.getElementById("register-name");
-    const apellido = document.getElementById("register-lastname");
-    const email = document.getElementById("register-email");
-    const password = document.getElementById("register-password");
-    const role = document.getElementById("register-role");
+  const form = document.getElementById("register-form");
+  const nombre = document.getElementById("register-name");
+  const apellido = document.getElementById("register-lastname");
+  const email = document.getElementById("register-email");
+  const password = document.getElementById("register-password");
+  const role = document.getElementById("register-role");
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault(); // Evitamos que el formulario se envíe de forma tradicional
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // Evitamos que el formulario se envíe de forma tradicional
 
-        // Aquí podrías agregar validaciones de los campos antes de enviar los datos
-        const userData = {
-            nombre: nombre.value,
-            apellido: apellido.value,
-            email: email.value,
-            password: password.value,
-            roles: [role.value] // Enviamos el rol como un array para mantener consistencia con la estructura de usuarios que podríamos tener en el backend
-        };
-    })
+    // Aquí podrías agregar validaciones de los campos antes de enviar los datos
+    const newUser = {
+      nombre: nombre.value,
+      apellido: apellido.value,
+      email: email.value,
+      password: password.value,
+      roles: [role.value] // Enviamos el rol como un array para mantener consistencia con la estructura de usuarios que podríamos tener en el backend
+    };
+
+    const response = await crearUsuario(newUser);
+    if (response) {
+      alert('Usuario creado exitosamente');
+    }
+  })
 }
