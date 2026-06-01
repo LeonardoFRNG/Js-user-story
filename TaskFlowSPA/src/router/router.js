@@ -6,6 +6,8 @@ export function renderRouter() {
 
     const route = routes[currentPath] ?? { render: notFoundView };
 
+    const user = 
+
     app.innerHTML = route.render();
 
     if (route.setup) {
@@ -33,3 +35,4 @@ export function initRouter() {
     // Cuando el usuario usa atrás/adelante del navegador
     window.addEventListener("popstate", renderRouter);
 }
+

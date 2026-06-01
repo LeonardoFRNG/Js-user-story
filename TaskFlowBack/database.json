@@ -1,4 +1,16 @@
 {
-    "users": [],
+    "users": [
+        {
+            "name": "Leonardo",
+            "lastName": "Di Caprio",
+            "email": "leonardo@taskflow.com",
+            "password": "leonardo123",
+            "role": [
+                "admin"
+            ],
+            "id": "qu1f-1234" 
+            
+        }
+    ],
     "tasks": [] 
 }

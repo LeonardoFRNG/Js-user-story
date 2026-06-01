@@ -49,11 +49,48 @@ export function renderLogin () {
 }
 
 export function setupLogin() {
-  const form = document.querySelector('form');
-  if (!form) return;
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    history.pushState({}, '', '/dashboard');
-    window.dispatchEvent(new PopStateEvent('popstate'));
+  const form = document.querySelector('form') // obtnemos el formulario de login
+
+  if (!form) return; // si no existe el formulario, salimos de la funcion para evitar errores
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // prevenimos el comportamiento por defecto del formulario (osea recargar la pagina)
+
+    const email = document.getElementById('email').value.trim(); // obtenemos el valor del input de email
+    const password = document.getElementById('password').value.trim(); // obtenemos el valor del input de password
+
+    if (!email || !password) {
+      alert('Por favor Ingresa tu correo y contra para iniciar sesion.')
+      return;
+    }
+
+
+    //PETICION A LA FAKE API
+    
+    try {
+      const res = await fetch('http://localhost:3000/users') // hacemos una peticion GET a la ruta /users para obtener la lista de usuarios registrados (en este caso, el array de usuarios en database.json)
+
+      const users = await res.json(); // convertimos la respuesta a JSON para obtener el array de usuarios
+
+      const user = users.find(u => u.email === email && u.password === password); // buscamos en el array de usuarios un usuario que tenga el mismo email y password que los ingresados en el formulario
+
+      if (!user) {
+        alert('Credenciales incorrectas. Por favor verifica tu correo y contrasena e intenta de nuevo.')
+        return;
+      }
+
+      //GUARDAR CON LOCAL STORAGE!!!
+      
+      localStorage.setItem('user', JSON.stringify(user)); // guardamos en localStorage el usuario encontrado (en este caso, el objeto con email y password) para simular una sesion iniciada. Lo convertimos a string con JSON.stringify porque localStorage solo puede guardar strings.
+      console.log('Login exitoso: ', user);
+
+      //REDIRECCIONAMOS AL DASHBOARD (SPA)!!!
+      history.pushState({}, "", "/dashboard"); //cambiamos la URL a /dashboard sin recargar la pagina
+      window.dispatchEvent(new PopStateEvent('popstate')); // disparamos un evento de popstate para que el router detecte el cambio de URL y renderice la vista del dashboard
+      
+    } catch (error) {
+      console.error('Error en login:', error);
+      alert('Ocurrió un error al intentar iniciar sesion. Por favor intenta de nuevo.');
+    }
   });
 }
