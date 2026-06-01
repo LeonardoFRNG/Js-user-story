@@ -1,4 +1,4 @@
-export function TaskForm() {
+export function renderTaskForm() {
     return `
     <main class="mx-auto max-w-5xl px-6 py-10">
       <section class="rounded-[2rem] border border-blue-100 bg-white p-8 shadow-xl shadow-blue-50">
@@ -33,10 +33,14 @@ export function TaskForm() {
           </div>
 
           <div class="flex flex-col gap-3 pt-2 sm:flex-row">
-            <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500" href="/src/views/tasks.html">Guardar tarea</a>
-            <a class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/src/views/tasks.html">Cancelar</a>
+            <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500">Guardar tarea</button>
+            <a class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" data-link href="/tasks">Cancelar</a>
           </div>
         </form>
       </section>
     </main>
     `}
+
+export function setupTaskForm() {
+  // placeholder for task form setup
+}

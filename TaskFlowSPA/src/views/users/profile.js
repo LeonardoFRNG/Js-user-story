@@ -1,4 +1,4 @@
-export function profile() {
+export function renderProfile() {
     return `
         <main class="mx-auto max-w-5xl px-6 py-10">
   <section class="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
@@ -27,14 +27,19 @@ export function profile() {
             class="w-full rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-slate-900 placeholder:text-slate-400 focus:border-blue-400 focus:outline-none" />
         </div>
         <div class="flex flex-col gap-3 pt-2 sm:flex-row">
-          <a class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500"
-            href="/src/views/profile.html">Guardar cambios</a>
+          <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-bold text-white hover:bg-blue-500">
+            Guardar cambios
+          </button>
           <a class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50"
-            href="/src/views/login.html">Eliminar mi cuenta</a>
+            data-link href="/login">Eliminar mi cuenta</a>
         </div>
       </form>
     </section>
   </section>
 </main>
     `
+}
+
+export function setupProfile() {
+  // Placeholder for profile setup (event listeners)
 }

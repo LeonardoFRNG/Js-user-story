@@ -1,4 +1,4 @@
-export function TaskForm() {
+export function renderAdmin() {
   return `
 <main class="mx-auto max-w-7xl px-6 py-10">
   <section class="rounded-[2rem] bg-blue-600 px-8 py-10 text-white shadow-xl shadow-blue-100">
@@ -13,11 +13,11 @@ export function TaskForm() {
       <h2 class="text-xl font-bold text-slate-900">Acciones rapidas</h2>
       <div class="mt-5 grid gap-4">
         <a class="rounded-2xl bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-700 hover:bg-blue-100"
-          href="/src/views/admin.html">Gestionar usuarios</a>
+          data-link href="/admin">Gestionar usuarios</a>
         <a class="rounded-2xl bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-700 hover:bg-blue-100"
-          href="/src/views/tasks.html">Ver todas las tareas</a>
+          data-link href="/tasks">Ver todas las tareas</a>
         <a class="rounded-2xl bg-blue-50 px-5 py-4 text-sm font-semibold text-blue-700 hover:bg-blue-100"
-          href="/src/views/dashboard.html">Volver al dashboard</a>
+          data-link href="/dashboard">Volver al dashboard</a>
       </div>
     </article>
 
@@ -37,7 +37,7 @@ export function TaskForm() {
             <div class="flex gap-2">
               <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-blue-700">USER</span>
               <a class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-white"
-                href="/src/views/admin.html">Editar rol</a>
+                data-link href="/admin">Editar rol</a>
             </div>
           </div>
         </div>
@@ -50,7 +50,7 @@ export function TaskForm() {
             <div class="flex gap-2">
               <span class="rounded-full bg-white px-3 py-1 text-xs font-bold text-blue-700">ADMIN</span>
               <a class="rounded-full border border-blue-200 px-3 py-1 text-xs font-semibold text-blue-700 hover:bg-white"
-                href="/src/views/admin.html">Editar rol</a>
+                data-link href="/admin">Editar rol</a>
             </div>
           </div>
         </div>
@@ -60,3 +60,7 @@ export function TaskForm() {
 </main>
   `
 }   
+    
+export function setupAdmin() {
+  // placeholder for admin setup
+}

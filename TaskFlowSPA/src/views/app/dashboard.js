@@ -1,4 +1,4 @@
-export function dashboard() {
+export function renderDashboard() {
     return `
     <main class="mx-auto max-w-6xl px-6 py-10">
   <section class="rounded-[2rem] bg-blue-600 px-8 py-10 text-white shadow-xl shadow-blue-100">
@@ -27,14 +27,14 @@ export function dashboard() {
     <article class="rounded-3xl border border-blue-100 bg-white p-6 shadow-lg shadow-blue-50">
       <div class="flex items-center justify-between">
         <h2 class="text-xl font-bold text-slate-900">Accesos rapidos</h2>
-        <a class="text-sm font-semibold text-blue-700 hover:text-blue-600" href="/src/views/tasks.html">Ver tareas</a>
+        <a class="text-sm font-semibold text-blue-700 hover:text-blue-600" data-link href="/tasks">Ver tareas</a>
       </div>
       <div class="mt-6 grid gap-4 sm:grid-cols-2">
-        <a class="rounded-3xl bg-blue-50 p-5 hover:bg-blue-100" href="/src/views/task-form.html">
+        <a class="rounded-3xl bg-blue-50 p-5 hover:bg-blue-100" data-link href="/task-form">
           <p class="text-sm font-semibold text-blue-600">Crear</p>
           <h3 class="mt-2 text-lg font-bold text-slate-900">Nueva tarea</h3>
         </a>
-        <a class="rounded-3xl bg-blue-50 p-5 hover:bg-blue-100" href="/src/views/profile.html">
+        <a class="rounded-3xl bg-blue-50 p-5 hover:bg-blue-100" data-link href="/profile">
           <p class="text-sm font-semibold text-blue-600">Cuenta</p>
           <h3 class="mt-2 text-lg font-bold text-slate-900">Editar perfil</h3>
         </a>
@@ -43,4 +43,8 @@ export function dashboard() {
   </section>
 </main>
   `
+}
+
+export function setupDashboard() {
+  // placeholder for dashboard setup (event listeners)
 }

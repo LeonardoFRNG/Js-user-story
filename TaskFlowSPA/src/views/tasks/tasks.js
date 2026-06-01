@@ -1,4 +1,4 @@
-export function TaskForm() {
+export function renderTasks() {
     return `
         <main class="mx-auto max-w-6xl px-6 py-10">
       <section class="flex flex-col gap-4 rounded-[2rem] bg-blue-600 px-8 py-10 text-white md:flex-row md:items-end md:justify-between">
@@ -7,7 +7,7 @@ export function TaskForm() {
           <h1 class="mt-3 text-4xl font-black tracking-tight">Mis tareas</h1>
           <p class="mt-4 max-w-2xl text-blue-50">Vista principal para listar, editar y eliminar las tareas del usuario autenticado.</p>
         </div>
-        <a class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" href="/src/views/task-form.html">
+        <a class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-blue-700 hover:bg-blue-50" data-link href="/task-form">
           Crear tarea
         </a>
       </section>
@@ -21,8 +21,8 @@ export function TaskForm() {
               <p class="mt-3 max-w-2xl text-slate-600">Documentar la estructura por capas y dejar claro el alcance base del proyecto.</p>
             </div>
             <div class="flex gap-3">
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/task-form.html">Editar</a>
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/tasks.html">Eliminar</a>
+              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" data-link href="/task-form">Editar</a>
+              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" data-link href="/tasks">Eliminar</a>
             </div>
           </div>
         </article>
@@ -35,11 +35,15 @@ export function TaskForm() {
               <p class="mt-3 max-w-2xl text-slate-600">Crear las pantallas base del proyecto para explicar la futura navegacion SPA.</p>
             </div>
             <div class="flex gap-3">
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/task-form.html">Editar</a>
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" href="/src/views/tasks.html">Eliminar</a>
+                <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" data-link href="/task-form">Editar</a>
+                <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" data-link href="/tasks">Eliminar</a>
             </div>
           </div>
         </article>
       </section>
     </main>
     `}
+    
+export function setupTasks() {
+  // placeholder for tasks setup
+}

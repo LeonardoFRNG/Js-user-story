@@ -54,5 +54,5 @@ const routes = { //
 
 }
 
-export const notFoundView = renderNotFound(); // Exportamos la vista de "Not Found" para usarla en el router
+export const notFoundView = renderNotFound; // Exportamos la vista de "Not Found" para usarla en el router
 export { routes };
