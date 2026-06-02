@@ -29,6 +29,26 @@
         "ADMIN"
       ],
       "id": "yn0CxV2RTF0"
+    },
+    {
+      "id": "cb8a",
+      "nombre": "cristian",
+      "apellido": "albor",
+      "email": "cristianalbor@gmail.com",
+      "password": "cristian123",
+      "roles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "id": "1ee0",
+      "nombre": "leonard",
+      "apellido": "Dicaprio",
+      "email": "leonardicaprio8@gmail.com",
+      "password": "123456",
+      "roles": [
+        "USER"
+      ]
     }
   ],
   "tasks": [],

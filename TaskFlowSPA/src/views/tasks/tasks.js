@@ -46,4 +46,9 @@ export function renderTasks() {
     
 export function setupTasks() {
   // placeholder for tasks setup
+  import { getTasks } from "../../services/task.service";
+
+  export async function (params) {
+    
+  }
 }
