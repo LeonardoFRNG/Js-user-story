@@ -6,8 +6,6 @@ export function renderRouter() {
 
     const route = routes[currentPath] ?? { render: notFoundView };
 
-    const user = 
-
     app.innerHTML = route.render();
 
     if (route.setup) {
