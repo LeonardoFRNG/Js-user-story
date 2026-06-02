@@ -74,28 +74,44 @@ export function renderRegister() {
 }
 
 export function setupRegister() {
-  const form = document.getElementById("register-form");
-  const nombre = document.getElementById("register-name");
-  const apellido = document.getElementById("register-lastname");
-  const email = document.getElementById("register-email");
-  const password = document.getElementById("register-password");
-  const role = document.getElementById("register-role");
+  const form = document.getElementById("register-form"); 
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // Evitamos que el formulario se envíe de forma tradicional
+  form.addEventListener("submit", async (e) => { // Agregamos un event listener para el evento submit del formulario
+    e.preventDefault();
+  // Obtenemos los valores de los campos del formulario
+    const nombre = document.getElementById("register-name").value.trim();
+    const apellido = document.getElementById("register-lastname").value.trim();
+    const email = document.getElementById("register-email").value.trim();
+    const password = document.getElementById("register-password").value.trim();
+    const role = document.getElementById("register-role").value;
 
-    // Aquí podrías agregar validaciones de los campos antes de enviar los datos
-    const newUser = {
-      nombre: nombre.value,
-      apellido: apellido.value,
-      email: email.value,
-      password: password.value,
-      roles: [role.value] // Enviamos el rol como un array para mantener consistencia con la estructura de usuarios que podríamos tener en el backend
+
+    if (!nombre || !apellido || !email || !password) { // Validamos que todos los campos estén completos
+      alert("Todos los campos son obligatorios");
+      return;
+    }
+
+    const newUser = { // Creamos un objeto con los datos del nuevo usuario
+      nombre,
+      apellido,
+      email,
+      password,
+      roles: [role]
     };
 
-    const response = await crearUsuario(newUser);
-    if (response) {
-      alert('Usuario creado exitosamente');
+    try {
+      const response = await crearUsuario(newUser); // Llamamos a la función de servicio para crear el usuario
+
+      if (response) {
+        alert("Usuario creado exitosamente");
+
+        history.pushState({}, "", "/login"); //cambiamos la URL a /login sin recargar la página
+        window.dispatchEvent(new PopStateEvent("popstate")); // Redirige al login después de registrarse
+      }
+
+    } catch (error) {
+      console.error(error);
+      alert("Error al registrar usuario");
     }
-  })
+  });
 }
