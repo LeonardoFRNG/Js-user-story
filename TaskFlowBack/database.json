@@ -51,6 +51,28 @@
       ]
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "title": "User Story JavaScript",
+      "description": "tengo que hacer la us de js",
+      "status": "Pendiente",
+      "date": "2026-04-04",
+      "id": "qHMSGJGOyhM"
+    },
+    {
+      "title": "Preparar proyecto final programacion",
+      "description": "hay que prepararnos para le capstone proyect",
+      "status": "En progreso",
+      "date": "1212-12-12",
+      "id": "Jy1gCbdqMqw"
+    },
+    {
+      "title": "Capstone Project",
+      "description": "necesitamos desarrollar nuesto capstone project",
+      "status": "En progreso",
+      "date": "2026-06-02",
+      "id": "ob2_Xg55BaQ"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
