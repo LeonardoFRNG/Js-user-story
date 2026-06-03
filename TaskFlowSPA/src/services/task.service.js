@@ -17,12 +17,53 @@ export async function createTask(task) {
 
 }
 
-//GET: el GET es el mas simple de todos porque no necesita method, headers ni body, solo la URL
+//GET(READ): el GET es el mas simple de todos porque no necesita method, headers ni body, solo la URL
 export async function getTasks() {
     const response = await fetch(URL); //GET es el metodo por defecto, no necesita opciones.
 
     if (!response.ok) {
-        throw new Error('Error al obtener las tareas');
+        throw new Error('Error al obtener las tareas'); //si la respuesta no es ok, lanza un error.
+    }
+
+    return await response.json(); //si la respuesta es ok, convierte el JSON a objeto JS y lo devuelve.
+}
+
+//DELETE
+export async function deleTask(id) {
+    const response = await fetch(`${URL}/${id}`, {
+        method: "DELETE",
+    });
+
+    if (!response.ok) {
+        throw new Error("Error al eliminar la tarea");
+    }
+}
+
+// NUEVA: trae una sola tarea por su id
+export async function getTaskById(id) {
+    const response = await fetch(`${URL}/${id}`);
+    //                                    ↑
+    //                         igual que el DELETE, el id va en la URL
+
+    if (!response.ok) {
+        throw new Error("Error al obtener la tarea");
+    }
+
+    return await response.json(); // devuelve UN objeto: {id, title, description, status, date}
+}
+
+// NUEVA: actualiza una tarea existente
+export async function updateTask(id, task) {
+    const response = await fetch(`${URL}/${id}`, {
+        method: "PUT", // PUT reemplaza toda la tarea con los nuevos datos
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task) // igual que el CREATE
+    });
+
+    if (!response.ok) {
+        throw new Error("Error al actualizar la tarea");
     }
 
     return await response.json();

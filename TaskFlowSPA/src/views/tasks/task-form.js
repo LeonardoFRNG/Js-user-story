@@ -1,4 +1,4 @@
-﻿import { createTask } from "../../services/task.service.js";
+﻿import { createTask, getTaskById, updateTask } from "../../services/task.service.js"; //importamos la funcion que crea tareas del servicio, para usarla en el form
 
 export function renderTaskForm() {
   return `
@@ -70,8 +70,8 @@ export function setupTaskForm() {
     try {
       await createTask(newTask); //await. espera aque el fetch termine antes de continuar
 
-      history.pushState({}, "", "/tasks");
-      window.dispatchEvent(new event("popstate"));
+      history.pushState({}, "", "/tasks"); //esto cambia la URL sin recargar la pagina, es como si el usuario hubiera hecho click en un link, pero sin recargar la pagina
+      window.dispatchEvent(new Event("popstate")); //esto le dice a la aplicacion que cambie de vista, es como si el usuario hubiera hecho click en un link, pero sin recargar la pagina
     } catch (error) {
       console.log('No se pudo crear la tarea, intenta de nuevo.');
     }

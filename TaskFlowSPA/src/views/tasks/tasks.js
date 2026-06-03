@@ -1,4 +1,4 @@
-import { getTasks } from "../../services/task.service.js";
+import { getTasks, deleTask } from "../../services/task.service.js";
 
 export function renderTasks() {
   return `
@@ -40,10 +40,37 @@ export async function setupTasks() {
               <p class="mt-3 max-w-2xl text-slate-600">${task.description}</p>
             </div>
             <div class="flex gap-3">
-              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" data-link href="/task-form">Editar</a>
+              <a class="rounded-full border border-blue-200 px-4 py-2 text-sm font-semibold text-blue-700 hover:bg-blue-50" data-link href="/task-form/${task.id}">Editar</a>
               <button class="rounded-full border border-red-200 px-4 py-2 text-sm font-semibold text-red-700 hover:bg-red-50" data-id="${task.id}">Eliminar</button>
             </div>
           </div>
         </article>
     `).join(""); //.map devuelve un array de strings, join("") los une en un solo string
+    
+    setupDeleteButtons(); //despues de pintar las tareas, setupDeleteButtons busca los botones de eliminar y les pone el evento
+}
+
+function setupDeleteButtons() {
+  //1. buscamos todos los botones que tengan data-id
+  const buttons = document.querySelectorAll("[data-id]");
+
+  //2. A cada boton le agrega un evento click
+  buttons.forEach(button => {
+    button.addEventListener('click', async () => {
+      //3. lee el id guardado en el boton 
+      const id = button.getAttribute('data-id');
+      //4. pide confirmacion antes de eliminar
+      const confirmed = confirm("Estás seguro de eliminar esta tarea?");
+
+      if (!confirmed) return; //si el usuario cancela, no hace nada
+
+      //5. llama al servicio para eliminar la tarea
+      try {
+        await deleTask(id); //espera a que el fetch termine antes de continuar
+        await setupTasks(); //vuelve a cargar las tareas para actualizar la vista
+      } catch (error) {
+        console.log("No se pudo eliminar la tarea, intenta de nuevo.");
+      }
+    })
+  })
 }
