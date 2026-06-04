@@ -1,3 +1,5 @@
+
+// aca importamos las vistas desde la carpeta views, y las organizamos en un objeto llamado routes, donde cada propiedad es una ruta y su valor es un objeto con la funcion render, la funcion setup y las propiedades de autorizacion.
 import { renderHome } from "../views/home.js";
 import { renderLogin, setupLogin } from "../views/auth/login.js";
 import { renderRegister, setupRegister } from "../views/auth/register.js";
@@ -8,7 +10,7 @@ import { renderTaskForm, setupTaskForm } from "../views/tasks/task-form.js";
 import { renderProfile, setupProfile } from "../views/users/profile.js";
 import { renderNotFound } from "../views/auth/not-found.js";
 
-const routes = { //
+const routes = { // cada propiedad del objeto routes es una ruta, y su valor es un objeto con la funcion render, la funcion setup y las propiedades de autorizacion.
     "/":  {
         render: renderHome,
     },

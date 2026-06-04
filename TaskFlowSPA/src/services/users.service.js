@@ -12,7 +12,7 @@
     return await response.json();
 }
 
-async function obtenerUsuarios() {
+export async function obtenerUsuarios() {
     const response = await fetch('http://localhost:3000/users')
     if (!response.ok) {
         throw new Error('Error al obtener los usuarios');
@@ -20,7 +20,7 @@ async function obtenerUsuarios() {
     return await response.json();
 }
 
-async function obtenerUsuariosPoremail(email) {
+export async function obtenerUsuariosPorEmail(email) {
     const response = await fetch(`http://localhost:3000/users?email=${email}`);
     if (!response.ok) {
         throw new Error('Error al obtener el usuario por email');

@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "name": "Leonardo",
-      "lastName": "Di Caprio",
-      "email": "leonardojim321@gmail.com",
-      "password": "leonardo123",
-      "role": [
-        "admin"
-      ],
-      "id": "qu1f-1234"
-    },
-    {
       "nombre": "david",
       "apellido": "dager",
       "email": "eltroller50@gmail.com",
@@ -49,15 +39,25 @@
       "roles": [
         "USER"
       ]
+    },
+    {
+      "nombre": "Leonardo",
+      "apellido": "Jimenez",
+      "email": "leonardojim321@gmail.com",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "id": "z8LTTnAnRkA"
     }
   ],
   "tasks": [
     {
-      "title": "Capstone Project",
-      "description": "necesitamos desarrollar nuesto capstone project",
+      "title": "yjyj",
+      "description": "jyjy",
       "status": "En progreso",
-      "date": "2026-06-02",
-      "id": "ob2_Xg55BaQ"
+      "date": "275760-08-07",
+      "id": "RpjSGKLy-HA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
