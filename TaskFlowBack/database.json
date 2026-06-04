@@ -49,16 +49,58 @@
         "ADMIN"
       ],
       "id": "z8LTTnAnRkA"
-    }
-  ],
-  "tasks": [
+    },
     {
-      "title": "yjyj",
-      "description": "jyjy",
-      "status": "En progreso",
-      "date": "275760-08-07",
-      "id": "RpjSGKLy-HA"
+      "nombre": "David",
+      "apellido": "Dajim",
+      "email": "leonardojim321@gmail.com",
+      "password": "123",
+      "roles": [
+        "USER"
+      ],
+      "id": "utGPBPa4PYI"
+    },
+    {
+      "nombre": "David",
+      "apellido": "Dajimf",
+      "email": "leonardojim321@gmail.com",
+      "password": "dd",
+      "roles": [
+        "USER"
+      ],
+      "id": "S_rWWiDXBIE"
+    },
+    {
+      "nombre": "David",
+      "apellido": "Dajim",
+      "email": "leonardojim321@gmail.com",
+      "password": "fff",
+      "roles": [
+        "USER"
+      ],
+      "id": "xrHtM4Ru67g"
+    },
+    {
+      "nombre": "fff",
+      "apellido": "fff",
+      "email": "leonardojim321@gmail.com",
+      "password": "ffff",
+      "roles": [
+        "ADMIN"
+      ],
+      "id": "5n3LneGpr8M"
+    },
+    {
+      "nombre": "dager",
+      "apellido": "david",
+      "email": "dager@gmail.com",
+      "password": "123",
+      "roles": [
+        "USER"
+      ],
+      "id": "J2cmCdFQne0"
     }
   ],
+  "tasks": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
