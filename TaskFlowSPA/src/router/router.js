@@ -1,13 +1,37 @@
 import { getUser, hasRole } from "../services/auth.service.js";
 import { notFoundView, routes } from "./routes.js";
 
-export function renderRouter () {
-    const app = document.getElementById('app'); //agarramos el contenedor
-    const currentPath = window.location.pathname; //leemos la URL actual
+function getRoute(path) {
+    // primero busca la ruta exacta
+    if (routes[path]) return { route: routes[path], params: {} };
 
-    const route = routes[currentPath] ?? { render: notFoundView }; //busca en el mapa la ruta actual y si no esta esa ruta se va hacia el render de la izq osea notFoundView
+    // si no, busca rutas con parámetros como /task-form/:id
+    for (const key in routes) {
+        const routeParts = key.split("/");
+        const pathParts = path.split("/");
 
-    //GUARD
+        if (routeParts.length !== pathParts.length) continue;
+
+        const params = {};
+        const match = routeParts.every((part, i) => {
+            if (part.startsWith(":")) {
+                params[part.slice(1)] = pathParts[i]; // extrae el id
+                return true;
+            }
+            return part === pathParts[i];
+        });
+
+        if (match) return { route: routes[key], params };
+    }
+
+    return { route: { render: notFoundView }, params: {} };
+}
+
+export function renderRouter() {
+    const app = document.getElementById('app');
+    const currentPath = window.location.pathname;
+
+    const { route, params } = getRoute(currentPath);
 
     if (route.isAuthorized) {
         const user = getUser();
@@ -23,22 +47,20 @@ export function renderRouter () {
         }
     }
 
-    app.innerHTML = route.render(); // pintamos el contenedor con el render segun la ruta
-    if (route.setup) route.setup(); //activamos los event listeners
+    app.innerHTML = route.render();
+    if (route.setup) route.setup(params); // le pasa el id al setup
 }
 
-export function initRouter () {
-    document.addEventListener('click', (e) => {
-        const link = e.target.closest('[data-link]');//busca el elemento mas cercano al que se le hizo click que tenga el atributo data-link, esto es para detectar los clicks en los links de la aplicacion, pero no en los links externos o en otros elementos que no sean links.
+export function initRouter() {
+    document.addEventListener("click", (e) => {
+        const link = e.target.closest("[data-link]");
         if (link) {
-            e.preventDefault();//evita que el navegador recargue la pagina al hacer click en un link, porque en una SPA no queremos recargar la pagina, queremos cambiar el contenido dinamicamente
-            const path = link.getAttribute('href'); //lee la ruta a la que el usuario quiere ir, que esta guardada en el atributo href del link
-            history.pushState({}, "", path); //esto cambia la URL sin recargar la pagina, es como si el usuario hubiera hecho click en un link, pero sin recargar la pagina
+            e.preventDefault();
+            const path = link.getAttribute("href");
+            history.pushState({}, "", path);
             renderRouter();
         }
     });
 
-    window.addEventListener('popstate', renderRouter); //detecta cuando el usuario hace click en el boton de atras o adelante del navegador y renderiza la vista correspondiente
+    window.addEventListener("popstate", renderRouter);
 }
-
-

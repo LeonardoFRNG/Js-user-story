@@ -11,5 +11,5 @@ export function hasRole (role) {
 export function logout () {
     localStorage.removeItem('user'); //borra al user del ls
     history.pushState({}, "", "/login"); //cambia la vista al login sin recargar
-    window.dispatchEvent(new Event('popState')); //dispara el router manualmente
+    window.dispatchEvent(new Event('popstate')); //dispara el router manualmente
 }

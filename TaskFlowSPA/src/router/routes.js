@@ -45,6 +45,11 @@ const routes = { // cada propiedad del objeto routes es una ruta, y su valor es 
         setup: setupTaskForm,
         isAuthorized: true, // Esta ruta requiere autenticación
     },
+    "/task-form/:id": {
+    render: renderTaskForm,
+    setup: setupTaskForm,
+    isAuthorized: true,
+  },
     "/profile": {
         render: renderProfile,
         setup: setupProfile,

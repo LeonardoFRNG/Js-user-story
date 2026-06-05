@@ -1,4 +1,4 @@
-import { getTasks, deleTask } from "../../services/task.service.js";
+import { getTasks, deleteTask } from "../../services/task.service.js";
 
 export function renderTasks() {
   return `
@@ -66,7 +66,7 @@ function setupDeleteButtons() {
 
       //5. llama al servicio para eliminar la tarea
       try {
-        await deleTask(id); //espera a que el fetch termine antes de continuar
+        await deleteTask(id); //espera a que el fetch termine antes de continuar
         await setupTasks(); //vuelve a cargar las tareas para actualizar la vista
       } catch (error) {
         console.log("No se pudo eliminar la tarea, intenta de nuevo.");

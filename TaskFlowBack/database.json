@@ -11,96 +11,51 @@
       "id": "eVR1xKa5hAI"
     },
     {
-      "nombre": "Isabella",
-      "apellido": "Rodriguez",
-      "email": "isabellasegreraalvarez@gmail.com",
-      "password": "isa12345",
-      "roles": [
-        "ADMIN"
-      ],
-      "id": "yn0CxV2RTF0"
-    },
-    {
-      "id": "cb8a",
-      "nombre": "cristian",
-      "apellido": "albor",
-      "email": "cristianalbor@gmail.com",
-      "password": "cristian123",
-      "roles": [
-        "ADMIN"
-      ]
-    },
-    {
-      "id": "1ee0",
-      "nombre": "leonard",
-      "apellido": "Dicaprio",
-      "email": "leonardicaprio8@gmail.com",
-      "password": "123456",
-      "roles": [
-        "USER"
-      ]
-    },
-    {
-      "nombre": "Leonardo",
-      "apellido": "Jimenez",
+      "nombre": "leo",
+      "apellido": "jimenez",
       "email": "leonardojim321@gmail.com",
       "password": "123",
       "roles": [
         "ADMIN"
       ],
-      "id": "z8LTTnAnRkA"
+      "id": "nHCcH_qrxP8"
     },
     {
-      "nombre": "David",
-      "apellido": "Dajim",
-      "email": "leonardojim321@gmail.com",
+      "nombre": "lizeth",
+      "apellido": "agamez",
+      "email": "liz321@gmail.com",
       "password": "123",
       "roles": [
         "USER"
       ],
-      "id": "utGPBPa4PYI"
+      "id": "8X7Uvpi7Fig"
     },
     {
-      "nombre": "David",
-      "apellido": "Dajimf",
-      "email": "leonardojim321@gmail.com",
-      "password": "dd",
-      "roles": [
-        "USER"
-      ],
-      "id": "S_rWWiDXBIE"
-    },
-    {
-      "nombre": "David",
-      "apellido": "Dajim",
-      "email": "leonardojim321@gmail.com",
-      "password": "fff",
-      "roles": [
-        "USER"
-      ],
-      "id": "xrHtM4Ru67g"
-    },
-    {
-      "nombre": "fff",
-      "apellido": "fff",
-      "email": "leonardojim321@gmail.com",
-      "password": "ffff",
-      "roles": [
-        "ADMIN"
-      ],
-      "id": "5n3LneGpr8M"
-    },
-    {
-      "nombre": "dager",
-      "apellido": "david",
-      "email": "dager@gmail.com",
+      "nombre": "lizeth",
+      "apellido": "agamez",
+      "email": "liz321@gmail.com",
       "password": "123",
       "roles": [
         "USER"
       ],
-      "id": "J2cmCdFQne0"
+      "id": "nu-Jsz74egw"
     }
   ],
-  "tasks": [],
+  "tasks": [
+    {
+      "title": "dknddcd",
+      "description": "dfd",
+      "status": "Completada",
+      "date": "3443-04-23",
+      "id": "CgR5knsUazw"
+    },
+    {
+      "title": "dss",
+      "description": "ffed",
+      "status": "Completada",
+      "date": "1221-12-12",
+      "id": "7Qd8JC9KcGg"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

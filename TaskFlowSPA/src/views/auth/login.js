@@ -1,4 +1,4 @@
-import { obtenerUsuariosporEmail } from "../../services/users.service.js";
+import { obtenerUsuariosPorEmail } from "../../services/users.service.js";
 
 export function renderLogin () {
     return `
@@ -71,7 +71,7 @@ export function setupLogin() {
 
     try {
       //3. buscamos el usuario por email
-      const usuario = await obtenerUsuariosporEmail(email); 
+      const usuario = await obtenerUsuariosPorEmail(email); 
 
       //4. si no existe el usuario o la contrasena no coincide, mostramos un error
       if (!usuario || usuario.password !== password) {
@@ -80,9 +80,9 @@ export function setupLogin() {
       }
 
       //5. si todo es correcto, guardamos el usuario en localStorage y redirigimos al dashboard
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(usuario));
       history.pushState({}, "", "/dashboard");
-      window.dispatchEvent(new Event('popState'));
+      window.dispatchEvent(new PopStateEvent('popstate'));
     } catch (error) {
       console.error("Error al iniciar sesion:", error);
       alert("Ocurrio un error al iniciar sesion. Intenta nuevamente.");
